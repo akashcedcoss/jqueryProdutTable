@@ -38,8 +38,19 @@ text.innerHTML = "<tr>\
          <td>' + result[i].pName + '</td>\
          <td>' + result[i].pPrice + '</td>\
          <td>' + result[i].pQuantity + '</td>\
-         <td> <a href="#" onclick=editForm()>Edit</a><a href="#" onclick=deleteForm()>Delete</a></td>\
+         <td> <a href="#" onclick = editForm('+ pID +')>Edit</a><a href="#" onclick = deleteForm('+ pID +')>Delete</a></td>\
      </tr>';
     }
     
 }
+
+function editForm(pId){
+    $(document).ready(function(){
+        $("#pID").click(function(){
+          $(".text-field").val(pId);
+        });
+
+    })
+    return;
+    
+};
