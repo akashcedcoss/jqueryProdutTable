@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="style.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+        <div class="label">
+            <label for="pro-id">Product SKU</label>
+            <label for="pro-name">Product Name</label>
+            <label for="pro-price">Product Price</label>
+            <label for="pro-quantity">Product Quantity</label>
+        </div>
+        <div class="productDetails">
+            <input type="text" class="text-field" id="pID" name="pro-id">
+            <input type="text" class="text-field" id="pName" name="pro-name">
+            <input type="text" class="text-field" id="pPrice" name="pro-price">
+            <input type="text" class="text-field" id="pQuantity" name="pro-quantity">
+        </div>
+    </div>
+            <input type="button" id="Button" onclick="addProduct()" value="ADD PRODUCT"> 
+            <div id="addSuccess">Product Added Successfully</div>
+            <div id="addError">There is some error</div>
+            
+
+
+        
+    </div>
+    <div class="table">
+        <table id="table1">
+            
+        </table>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
