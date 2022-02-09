@@ -10,14 +10,25 @@ $(document).ready(function(){
        console.log(name1);
        console.log(price);
        console.log(quantity);
+       
        var productDetails = getArray(id, name1, price, quantity);
        if(flag == 1){
        product.push(productDetails);
-       }
-       
        display(product);
+        $('#addSuccess').css('display', 'block');
+        $('#message').html('Added');
+        $('#addError').css('display', 'none');
+       }
+       else{
+        $('#addError').css('display', 'block');
+        $('#addSuccess').css('display', 'none');
+    }
+       
+    //    display(product);
     });
     $('body').on("click", "#editForm", function(){
+        $('#Button1').css('display', 'inline');
+        $('#Button').css('display', 'none');
        var pro_id = $(this).data("id");
         pro = getProducts(pro_id);
     // We can also access by passing all data id of products separetely
@@ -34,8 +45,22 @@ $(document).ready(function(){
        $('#pPrice').val(pro.pPrice);
        $('#pQuantity').val(pro.pQuantity);
 
-        console.log(p_id);
+       
     });
+    $('body').on("click", "#deleteForm", function(){
+        var pro_id = $(this).data("id");
+        alert("Are you sure you want to delete this row with SKU = "+pro_id);
+        pro = getProducts(pro_id);
+        product.splice(product.indexOf(pro),1);
+        display(product);
+        $('#addSuccess').css('display', 'block');
+        $('#addError').html('deleted')
+
+
+        
+
+    });
+
 
     $('#Button1').click(function(){
         var update_sku = $('#pID').val();
@@ -47,7 +72,14 @@ $(document).ready(function(){
         temp.pPrice = update_price;
         temp.pQuantity = update_quantity;
         display(product);
-    })
+    });
+
+    $('.close').click(function(){
+        $('#addSuccess').css('display', 'none');
+        $('#addError').css('display', 'none');
+    });    
+
+    
 
 });
 
@@ -94,12 +126,12 @@ function display(product){
              <td>' + product[i].pName + '</td>\
              <td>' + product[i].pPrice + '</td>\
              <td>' + product[i].pQuantity + '</td>\
-             <td> <a href="#" id = "editForm" data-id='+product[i].pID +' >Edit</a></td>\
+             <td> <a href="#" id = "editForm" data-id='+product[i].pID +' >Edit</a>/ <a href="#" id = "deleteForm" data-id='+product[i].pID +' >Delete</a></td>\
          </tr>';
         }
         $('#table1').html(text);
         
-    }
+    };
 
     // $(document).ready(function(){
     //     $("#editForm").click(function(){
@@ -109,8 +141,37 @@ function display(product){
     // })
     // return;
 
+    function idValidate(id, product){
+        for (var i = 0; i<product.length; i++){
+            if (p_sku == product[i].id){
+                return false;
+            }
+        }
+        return true;
+    }
     
-;
+    function checkValues(id, name1, price, quantity){
+        if (id == "" || isNaN(id)){
+            $('#pID').css('border', 'red 3px solid');
+            return false;
+        }
+        else if(name1 == "" ){
+            $('#pName').css('border', 'red 3px solid');
+            return false;
+        }
+        else if(price == "" || isNaN(price)){
+            $('#pPrice').css('border', 'red 3px solid');
+            return false;
+        }
+        else if(quantity == "" || isNaN(quantity)){
+            $('#pQuantity').css('border', 'red 3px solid');
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
                 
         
             

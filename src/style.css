@@ -56,9 +56,13 @@ label{
     background-color: green;
     padding: 10px;
     border-radius: 8px;
+    /* display: none; */
 }
 #addError{
     background-color: red;
     padding: 10px;
     border-radius: 8px;
 }
+ #Button1{
+     display: none;
+ }
