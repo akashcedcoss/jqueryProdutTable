@@ -10,7 +10,7 @@ $(document).ready(function(){
        console.log(name1);
        console.log(price);
        console.log(quantity);
-       
+       if(checkValues(id, name1, price, quantity) && idValidate(id, product)){
        var productDetails = getArray(id, name1, price, quantity);
        if(flag == 1){
        product.push(productDetails);
@@ -19,13 +19,12 @@ $(document).ready(function(){
         $('#message').html('Added');
         $('#addError').css('display', 'none');
        }
+    }
        else{
         $('#addError').css('display', 'block');
         $('#addSuccess').css('display', 'none');
     }
-       
-    //    display(product);
-    });
+});
     $('body').on("click", "#editForm", function(){
         $('#Button1').css('display', 'inline');
         $('#Button').css('display', 'none');
@@ -120,7 +119,7 @@ function display(product){
    </tr>";
 
     
-        for(var i =0; i<product.length;i++){
+for(var i =0; i<product.length;i++){
             text +='<tr>\
              <td>' + product[i].pID + '</td>\
              <td>' + product[i].pName + '</td>\
@@ -132,16 +131,7 @@ function display(product){
         $('#table1').html(text);
         
     };
-
-    // $(document).ready(function(){
-    //     $("#editForm").click(function(){
-    //       $("pID").val(product);
-    //     });
-
-    // })
-    // return;
-
-    function idValidate(id, product){
+function idValidate(id, product){
         for (var i = 0; i<product.length; i++){
             if (p_sku == product[i].id){
                 return false;
