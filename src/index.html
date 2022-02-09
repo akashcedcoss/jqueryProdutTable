@@ -3,7 +3,8 @@
 <head>
     <title>Task2</title>
     <link rel="stylesheet" href="style.css">
-    <script src="style.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -21,7 +22,8 @@
             <input type="text" class="text-field" id="pQuantity" name="pro-quantity">
         </div>
     </div>
-            <input type="button" id="Button" onclick="addProduct()" value="ADD PRODUCT"> 
+            <input type="button" id="Button" value="ADD PRODUCT" name="add_product">
+            <input type="button" id="Button1" value="UPDATE PRODUCT" name="add_product"> 
             <div id="addSuccess">Product Added Successfully</div>
             <div id="addError">There is some error</div>
             
@@ -35,6 +37,6 @@
         </table>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 </html>

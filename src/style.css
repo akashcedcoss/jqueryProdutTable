@@ -20,6 +20,13 @@
     border: 3px solid black;
     background-color: white;
 }
+#Button1 {
+    padding: 1.5%;
+    padding-left: 2.5%;
+    padding-right: 5.5%;
+    border: 3px solid black;
+    background-color: white;
+}
 #table1 {
     padding-right: 5%;
     width: 40%;
